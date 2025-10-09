@@ -15,8 +15,10 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "types": ["node"],
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"]
     }
   }
