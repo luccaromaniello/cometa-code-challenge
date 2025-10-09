@@ -9,8 +9,9 @@
   --primary: hsla(283, 95%, 38%, 1);
   --secondary: hsla(283, 88%, 14%, 1);
   --neutral-purple: hsla(283, 50%, 7%, 1);
-  --neutral-gray: hsl(0, 0%, 90.2%);
-  --neutral-dark-gray: #hsla(0, 0%, 26%, 1);
+  --neutral-light-gray: hsl(0, 0%, 90.2%);
+  --neutral-gray: hsla(229, 8%, 50%, 1);
+  --neutral-dark-gray: hsla(0, 0%, 26%, 1);
   --font-mona: 'Mona Sans', sans;
 }
 
@@ -19,6 +20,7 @@
   --color-secondary: var(--secondary);
   --color-neutral-purple: var(--neutral-purple);
   --color-neutral-gray: var(--neutral-gray);
+  --color-neutral-light-gray: var(--neutral-light-gray);
   --color-neutral-dark-grey: var(--neutral-dark-grey);
 }
 
