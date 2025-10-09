@@ -3,7 +3,7 @@ import CategoryPicker from './content/CategoryPicker.vue'
 </script>
 
 <template>
-  <div class="grid grid-cols-[1fr_3fr_1fr]">
+  <div class="grid grid-cols-[1fr_3fr_1fr] gap-5">
     <CategoryPicker />
     <CategoryPicker />
     <CategoryPicker />
