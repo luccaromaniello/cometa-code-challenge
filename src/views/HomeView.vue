@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Highlights from '@/components/HighlightData.vue'
-import Content from '@/components/ContentData.vue'
+import Highlights from '@components/sections/HighlightData.vue'
+import Content from '@components/sections/ContentData.vue'
 </script>
 
 <template>
