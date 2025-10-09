@@ -3,7 +3,7 @@ import Highlights from '@/components/HighlightData.vue'
 </script>
 
 <template>
-  <div class="flex flex-col w-full rounded-xl bg-white text-neutral-purple">
+  <div class="flex flex-col p-4 w-full rounded-xl bg-white text-neutral-purple">
     <!-- TODO: nav -->
     <main>
       <Highlights />
