@@ -4,6 +4,7 @@ import BaseCard from '@components/ui/BaseCard.vue'
 import BaseInput from '@components/ui/BaseInput.vue'
 import BaseButton from '@components/ui/BaseButton.vue'
 import CategoryList from '@components/content/CategoryList.vue'
+import SelectableButton from '@components/ui/SelectableButton.vue'
 </script>
 
 <template>
@@ -24,7 +25,11 @@ import CategoryList from '@components/content/CategoryList.vue'
           <SectionHeading type="h5" title="Idiomas" />
           <BaseButton label="Resetar" variant="text" @click="() => {}" />
         </div>
-        <div></div>
+        <div class="flex flex-row gap-3 justify-between items-center">
+          <SelectableButton label="Português" />
+          <SelectableButton label="English" />
+          <SelectableButton label="Spanish" />
+        </div>
       </div>
     </BaseCard>
   </div>

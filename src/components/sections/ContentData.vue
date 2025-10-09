@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CategoryPicker from './content/CategoryPicker.vue'
+import CategoryPicker from '@components/content/CategoryPicker.vue'
 </script>
 
 <template>
