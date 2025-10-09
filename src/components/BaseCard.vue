@@ -27,8 +27,11 @@ const props = withDefaults(
       class="absolute -top-12 left-0 z-0 pointer-events-none"
     />
 
-    <div class="relative z-10">
+    <div class="relative z-10 grid grid-cols-1 gap-5">
       <h3 class="font-medium text-neutral-purple">{{ props.title }}</h3>
+      <p v-if="props.data" class="text-2xl font-semibold text-secondary">
+        {{ props.data }}
+      </p>
       <slot />
     </div>
   </div>
