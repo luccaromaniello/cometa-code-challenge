@@ -19,3 +19,10 @@
   --color-neutral-purple: var(--neutral-purple);
   --color-neutral-gray: var(--neutral-gray);
 }
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
