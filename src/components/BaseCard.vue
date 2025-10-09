@@ -13,24 +13,24 @@ const props = withDefaults(
 
 <template>
   <div
-    class="rounded-lg py-8 px-7 overflow-hidden"
+    class="relative rounded-lg py-8 px-7 overflow-hidden"
     :class="[
       props.type === 'default'
         ? 'border-1 border-neutral-gray shadow-[0px_13px_18px_0px_#3E00560D]'
-        : `bg-[url('../assets/gradient-path.svg'),_linear-gradient(250deg,_#EE7696,_#8A05BE,_#EE7696)]
-        bg-[position:-40px,0,_center]
-        bg-no-repeat
-        bg-[length:100%_-360px,_100%_100%]`,
+        : `bg-linear-270 from-[#EE7696] via-[#8A05BE] to-[#EE7696]`,
     ]"
   >
-    <!-- <img
-      src="../assets/gradient-path.svg"
-      alt="Gradient path for styling purposes"
-      class="absolute top-0 left-0 z-0"
-    /> -->
+    <img
+      v-if="props.type === 'highlight'"
+      src="../assets/gradient-path.png"
+      alt="Glow"
+      class="absolute -top-12 left-0 z-0 pointer-events-none"
+    />
 
-    <h3 class="font-medium text-neutral-purple">{{ props.title }}</h3>
-    <slot />
+    <div class="relative z-10">
+      <h3 class="font-medium text-neutral-purple">{{ props.title }}</h3>
+      <slot />
+    </div>
   </div>
 </template>
 
