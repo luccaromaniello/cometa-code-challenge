@@ -5,7 +5,7 @@ const props = withDefaults(
   defineProps<{
     type?: 'highlight' | 'default'
     gradient?: boolean
-    title: string
+    title?: string
     data?: string
   }>(),
   {
@@ -32,8 +32,7 @@ const props = withDefaults(
     />
 
     <div class="relative z-10 grid grid-cols-1 gap-5">
-      {{ props.gradient }}
-      <h3 class="font-medium text-neutral-purple">{{ props.title }}</h3>
+      <h3 v-if="props.title" class="font-medium text-neutral-purple">{{ props.title }}</h3>
       <p v-if="props.data" class="text-2xl font-semibold text-secondary">
         {{ props.data }}
       </p>
