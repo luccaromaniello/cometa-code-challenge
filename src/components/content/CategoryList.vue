@@ -23,6 +23,14 @@ function toggleCategory(category: Category) {
     })
   }
 }
+
+function toggleChild(category: Category, child: Category) {
+  child.selected = !child.selected
+
+  if (category.children) {
+    category.selected = category.children.every((c) => c.selected)
+  }
+}
 </script>
 
 <template>
@@ -35,18 +43,22 @@ function toggleCategory(category: Category) {
           <span class="text-sm">{{ category.name }}</span>
           <input
             type="checkbox"
-            v-model="category.selected"
+            :checked="category.selected"
             @change="toggleCategory(category)"
             class="accent-primary/15"
           />
         </label>
 
-        <!-- Children -->
         <ul v-if="category.children?.length" class="ml-6 mt-1 space-y-1">
           <li v-for="(child, cIndex) in category.children" :key="cIndex">
             <label class="flex justify-between items-center gap-2 cursor-pointer">
               <span class="text-sm">{{ child.name }}</span>
-              <input type="checkbox" v-model="child.selected" class="accent-primary/15" />
+              <input
+                type="checkbox"
+                :checked="child.selected"
+                @change="() => toggleChild(category, child)"
+                class="accent-primary/15"
+              />
             </label>
           </li>
         </ul>
