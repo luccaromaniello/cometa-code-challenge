@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { iconMap, iconAltMap } from '@data/icons'
 
 const props = defineProps<{
   label?: string
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
   variant?: 'primary' | 'secondary' | 'text'
+  icon?: keyof typeof iconMap
 }>()
+
+const iconSrc = computed(() => (props.icon ? iconMap[props.icon] : null))
+const iconAlt = computed(() => (props.icon ? iconAltMap[props.icon] : ''))
 
 const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void
@@ -28,7 +33,7 @@ const variantClasses = computed(() => {
     case 'text':
       return 'p-0 bg-transparent text-neutral-gray hover:underline'
     default:
-      return 'px-4 py-2 bg-gradient-to-r from-[#EF0F4E] to-[#F5C32C] text-white hover:brightness-110 flex items-center justify-center rounded-full'
+      return 'px-6 py-3 bg-secondary text-white hover:brightness-150 flex items-center justify-center rounded-full'
   }
 })
 </script>
@@ -49,6 +54,8 @@ const variantClasses = computed(() => {
       ]"
     >
       <slot>{{ label }}</slot>
+
+      <img v-if="iconSrc" :src="iconSrc" :alt="iconAlt" class="w-5 h-5 object-contain" />
     </button>
   </div>
 
@@ -60,5 +67,12 @@ const variantClasses = computed(() => {
     :class="[baseClasses, variantClasses]"
   >
     <slot>{{ label }}</slot>
+
+    <img
+      v-if="iconSrc"
+      :src="iconSrc"
+      :alt="iconAlt"
+      class="w-5 h-5 object-contain brightness-100 invert"
+    />
   </button>
 </template>
