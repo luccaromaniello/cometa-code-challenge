@@ -8,6 +8,7 @@ import ChipGroup from '@components/ui/ChipGroup.vue'
 import BaseAvatar from '@components/ui/BaseAvatar.vue'
 import BaseChip from '@components/ui/BaseChip.vue'
 import BaseButton from '@components/ui/BaseButton.vue'
+import IconButton from '@components/ui/IconButton.vue'
 
 const loading = ref(true)
 const jobs = ref<Job[]>([])
@@ -65,9 +66,14 @@ onMounted(() => {
               <p class="text-sm font-medium text-black">{{ job.employer.name }}</p>
             </div>
 
-            <div class="flex flex-col gap-1 font-medium text-sm">
-              <p class="text-black">{{ formatDateLong(job.deadline) }}</p>
-              <p class="text-neutral-gray">Prazo de entrega</p>
+            <div class="flex flex-row gap-2 font-medium text-sm">
+              <div class="w-10 h-10">
+                <IconButton icon="calendar" />
+              </div>
+              <div class="flex flex-col gap-1">
+                <p class="text-black">{{ formatDateLong(job.deadline) }}</p>
+                <p class="text-neutral-gray">Prazo de entrega</p>
+              </div>
             </div>
           </div>
           <div class="grid grid-cols-[2fr_1fr] gap-8">
