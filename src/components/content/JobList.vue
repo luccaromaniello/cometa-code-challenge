@@ -54,6 +54,9 @@ onMounted(() => {
               {{ job.salaryRange.to.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }}
             </p>
             <p class="text-sm text-neutral-gray font-medium">{{ job.offers }} propostas</p>
+            <div class="w-10 h-10 self-end mt-2">
+              <IconButton icon="heart" />
+            </div>
           </div>
         </div>
 
