@@ -17,7 +17,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <BaseCard type="custom" class="h-52">
+  <BaseCard type="custom" class="h-50">
     <div
       class="relative rounded-lg overflow-hidden h-full"
       :class="[
@@ -32,7 +32,7 @@ const props = withDefaults(
         class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
       />
 
-      <div class="relative z-10 flex flex-col gap-5 py-8 px-7">
+      <div class="relative z-10 flex flex-col gap-5 pt-8 pb-5 px-7">
         <h3 v-if="props.title" class="font-medium text-neutral-purple">{{ props.title }}</h3>
         <p v-if="props.data" class="text-2xl font-semibold text-secondary">
           {{ props.data }}
