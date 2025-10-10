@@ -11,8 +11,9 @@ const navItems = [
   {
     hasDropdown: true,
     options: [
-      { label: 'Opção 1', value: '1' },
-      { label: 'Opção 2', value: '2' },
+      { label: 'Explore', value: 'explore' },
+      { label: 'Negociações', value: 'negotiation' },
+      { label: 'Conquistas', value: 'achievements' },
     ],
   },
   { label: 'Encontre trabalhos', isButton: true },
