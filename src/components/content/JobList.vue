@@ -23,11 +23,11 @@ onMounted(() => {
     <div v-if="loading" class="text-gray-500 text-sm">Carregando oportunidades...</div>
 
     <div v-else class="grid grid-cols-1 gap-3">
-      <BaseCard
-        v-for="job in jobs"
-        :key="job.id"
-        :class="{ 'border-green-500 shadow-green-100 ring-1 ring-green-200': job.profitHighlight }"
-      >
+      <BaseCard v-for="job in jobs" :key="job.id" type="custom">
+        <div
+          v-if="job.profitHighlight"
+          class="h-1 rounded-t-lg w-full bg-linear-270 from-[#EF0F4E] to-[#F5C32C]"
+        ></div>
         <div class="grid grid-cols-[2fr_1fr] gap-9">
           <div class="flex flex-col gap-4">
             <h3 class="text-lg font-semibold text-gray-800">{{ job.title }}</h3>
@@ -46,23 +46,26 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="grid grid-cols-[1fr_1fr_2fr_1fr] gap-8">
-          <div class="flex gap-2">
-            <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />
-            <p class="text-sm font-medium text-black">{{ job.employer.name }}</p>
-          </div>
+        <div class="grid grid-cols-2">
+          <div class="grid grid-cols-2">
+            <div class="flex gap-2">
+              <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />
+              <p class="text-sm font-medium text-black">{{ job.employer.name }}</p>
+            </div>
 
-          <div class="flex flex-col gap-1 font-medium text-sm">
-            <p class="text-black">{{ formatDate(job.deadline) }}</p>
-            <p class="text-neutral-gray">Prazo de entrega</p>
+            <div class="flex flex-col gap-1 font-medium text-sm">
+              <p class="text-black">{{ formatDate(job.deadline) }}</p>
+              <p class="text-neutral-gray">Prazo de entrega</p>
+            </div>
           </div>
+          <div class="grid grid-cols-2">
+            <div>
+              <ChipGroup :tags="job.tags" />
+            </div>
 
-          <div>
-            <ChipGroup :tags="job.tags" />
-          </div>
-
-          <div>
-            <p>tette</p>
+            <div>
+              <p>tette</p>
+            </div>
           </div>
         </div>
       </BaseCard>
