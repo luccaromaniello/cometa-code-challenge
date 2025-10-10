@@ -73,7 +73,7 @@ onMounted(() => {
               <div class="w-10 h-10">
                 <IconButton icon="calendar" :clickable="false" />
               </div>
-              <div class="flex flex-col gap-1">
+              <div class="flex flex-col">
                 <p class="text-black">{{ formatDateLong(job.deadline) }}</p>
                 <p class="text-neutral-gray">Prazo de entrega</p>
               </div>
