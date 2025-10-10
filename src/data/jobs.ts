@@ -1,9 +1,18 @@
+import avatarRamiro from '@assets/images/avatar-ramiro.png'
+import avatarMichel from '@assets/images/avatar-michel.png'
+
 export interface Job {
   id: string
   title: string
   createdAt: Date
   deadline: Date
-  employer: string
+  employer: {
+    name: string
+    img: {
+      src: string
+      alt: string
+    }
+  }
   salaryRange: {
     from: number
     to: number
@@ -20,7 +29,13 @@ export const jobs: Job[] = [
     title: 'Desenvolvimento de App para Delivery de Comida White Label',
     createdAt: new Date('2025-05-01'),
     deadline: new Date('2025-06-15'),
-    employer: 'Michel Siqueira',
+    employer: {
+      name: 'Michel Siqueira',
+      img: {
+        src: avatarMichel,
+        alt: 'Michel Siqueira',
+      },
+    },
     salaryRange: {
       from: 39000,
       to: 52900,
@@ -35,7 +50,13 @@ export const jobs: Job[] = [
     title: 'Construção de página de vendas para Lançamento',
     createdAt: new Date('2025-05-10'),
     deadline: new Date('2025-05-30'),
-    employer: 'Ramiro Inchauspe',
+    employer: {
+      name: 'Ramiro Inchauspe',
+      img: {
+        src: avatarRamiro,
+        alt: 'Ramiro Inchauspe',
+      },
+    },
     salaryRange: {
       from: 600,
       to: 1200,
