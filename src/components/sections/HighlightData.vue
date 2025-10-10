@@ -10,14 +10,36 @@ import avatar2 from '@assets/images/avatar-review-2.png'
 import avatar3 from '@assets/images/avatar-ramiro.png'
 import chart from '@assets/chart.svg'
 import BaseButton from '../ui/BaseButton.vue'
+
+const walletOptions = [
+  { label: 'BRL', value: 'BRL' },
+  { label: 'USD', value: 'USD' },
+  { label: 'EUR', value: 'EUR' },
+]
+
+const profileVisualizationOptions = [
+  { label: 'Este mês', value: 'month' },
+  { label: 'Este semestre', value: 'semester' },
+  { label: 'Este ano', value: 'year' },
+]
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <HighlightCard title="Saldo disponível" gradient data="R$12.529,24">
+    <HighlightCard
+      title="Saldo disponível"
+      gradient
+      data="R$12.529,24"
+      :dropdownOptions="walletOptions"
+    >
       <BaseButton label="Solicitar saque" icon="wallet" />
     </HighlightCard>
-    <HighlightCard title="Visualizações de perfil" data="24" contentPadding="none">
+    <HighlightCard
+      title="Visualizações de perfil"
+      data="24"
+      contentPadding="none"
+      :dropdownOptions="profileVisualizationOptions"
+    >
       <div class="absolute -bottom-16 left-0">
         <img :src="chart" alt="Chart placeholder" class="w-full object-contain" />
       </div>

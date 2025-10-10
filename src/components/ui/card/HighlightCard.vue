@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BaseCard from '@components/ui/BaseCard.vue'
 import gradientPath from '@assets/gradient-path.png'
+import BaseDropdown from '@components/ui/BaseDropdown.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -8,6 +9,10 @@ const props = withDefaults(
     title?: string
     data?: string
     contentPadding?: 'default' | 'none'
+    dropdownOptions?: {
+      label: string
+      value: string
+    }[]
   }>(),
   {
     gradient: false,
@@ -32,14 +37,17 @@ const props = withDefaults(
         class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
       />
 
-      <div class="relative z-10 flex flex-col gap-5 pt-8 pb-5 px-7">
-        <h3 v-if="props.title" class="font-medium text-neutral-purple">{{ props.title }}</h3>
+      <div class="relative flex flex-col gap-5 pt-8 pb-5 px-7">
+        <div class="flex justify-between">
+          <h3 v-if="props.title" class="font-medium text-neutral-purple">{{ props.title }}</h3>
+          <BaseDropdown v-if="props.dropdownOptions" :options="props.dropdownOptions" />
+        </div>
         <p v-if="props.data" class="text-2xl font-semibold text-secondary">
           {{ props.data }}
         </p>
       </div>
 
-      <div class="relative z-10" :class="props.contentPadding === 'default' && 'px-7'">
+      <div class="relative" :class="props.contentPadding === 'default' && 'px-7'">
         <slot />
       </div>
     </div>
