@@ -19,6 +19,7 @@ const emit = defineEmits<{
 
 const iconSrc = computed(() => iconMap[props.icon])
 const altText = computed(() => iconAltMap[props.icon])
+
 function handleClick(event: MouseEvent) {
   emit('click', event)
 }

@@ -9,11 +9,14 @@ import avatar1 from '@assets/images/avatar-review-1.png'
 import avatar2 from '@assets/images/avatar-review-2.png'
 import avatar3 from '@assets/images/avatar-ramiro.png'
 import chart from '@assets/chart.svg'
+import BaseButton from '../ui/BaseButton.vue'
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <HighlightCard title="Saldo disponível" gradient data="R$12.529,24">testes </HighlightCard>
+    <HighlightCard title="Saldo disponível" gradient data="R$12.529,24">
+      <BaseButton label="Solicitar saque" icon="wallet" />
+    </HighlightCard>
     <HighlightCard title="Visualizações de perfil" data="24" contentPadding="none">
       <div class="absolute -bottom-16 left-0">
         <img :src="chart" alt="Chart placeholder" class="w-full object-contain" />
@@ -28,7 +31,6 @@ import chart from '@assets/chart.svg'
         ]"
         primaryText="Em diversos países do mundo"
         secondaryText="Recebidas de 40 países"
-        class="-mt-2"
       />
     </HighlightCard>
     <HighlightCard title="Suas conquistas">
