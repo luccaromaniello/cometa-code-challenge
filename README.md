@@ -4,7 +4,7 @@
 
 - Replicated the interface using Vue.js
 - Implemented a responsive design (didn't considered ultrawide resolutions - this would be a future improvement)
-- Added interactivity
+- Added interactivity (job search by name)
 
 ## Considerations
 
