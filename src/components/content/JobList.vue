@@ -7,6 +7,7 @@ import { formatDate } from '@utils/date'
 import ChipGroup from '@components/ui/ChipGroup.vue'
 import BaseAvatar from '@components/ui/BaseAvatar.vue'
 import BaseChip from '@components/ui/BaseChip.vue'
+import BaseButton from '@components/ui/BaseButton.vue'
 
 const loading = ref(true)
 const jobs = ref<Job[]>([])
@@ -69,14 +70,9 @@ onMounted(() => {
               <p class="text-neutral-gray">Prazo de entrega</p>
             </div>
           </div>
-          <div class="grid grid-cols-2">
-            <div>
-              <ChipGroup :tags="job.tags" />
-            </div>
-
-            <div>
-              <p>tette</p>
-            </div>
+          <div class="grid grid-cols-[2fr_1fr]">
+            <ChipGroup :tags="job.tags" />
+            <BaseButton label="Participar" variant="secondary" />
           </div>
         </div>
       </BaseCard>
