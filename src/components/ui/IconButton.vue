@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { defineProps, computed } from 'vue'
+import { defineProps, withDefaults, computed } from 'vue'
 import { iconMap, iconAltMap } from '@data/icons'
 
-const props = defineProps<{
-  icon: keyof typeof iconMap
-}>()
+const props = withDefaults(
+  defineProps<{
+    icon: keyof typeof iconMap
+    clickable?: boolean
+  }>(),
+  {
+    icon: 'search',
+    clickable: true,
+  },
+)
 
 const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void
@@ -12,7 +19,6 @@ const emit = defineEmits<{
 
 const iconSrc = computed(() => iconMap[props.icon])
 const altText = computed(() => iconAltMap[props.icon])
-
 function handleClick(event: MouseEvent) {
   emit('click', event)
 }
@@ -22,7 +28,16 @@ function handleClick(event: MouseEvent) {
   <button
     @click="handleClick"
     class="flex items-center justify-center rounded-full border border-neutral-light-gray bg-white hover:bg-neutral-light-gray/20 transition-colors w-full h-full min-w-[20px] min-h-[20px]"
+    :class="[
+      props.clickable &&
+        'cursor-pointer hover:bg-gradient-to-r hover:from-[#8A05BE] hover:to-[#EE7696] hover:border-primary',
+    ]"
   >
-    <img :src="iconSrc" :alt="altText" class="h-full w-auto object-contain p-2" />
+    <img
+      :src="iconSrc"
+      :alt="altText"
+      class="h-full w-auto object-contain p-2"
+      :class="[props.clickable && 'hover:brightness-100 hover:invert']"
+    />
   </button>
 </template>
