@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import type { Job } from '@/data/jobs'
 import { jobs as mockJobs } from '@/data/jobs'
 import BaseCard from '@components/ui/BaseCard.vue'
-import { formatDate } from '@utils/date'
+import { formatDateTimeAgo, formatDateLong } from '@utils/date'
 import ChipGroup from '@components/ui/ChipGroup.vue'
 import BaseAvatar from '@components/ui/BaseAvatar.vue'
 import BaseChip from '@components/ui/BaseChip.vue'
@@ -44,7 +44,7 @@ onMounted(() => {
             <span v-if="job.favorite" class="text-yellow-400 text-xl">★</span>
             <p class="text-sm font-medium text-neutral-gray">
               Publicado
-              {{ formatDate(job.createdAt) }}
+              {{ formatDateTimeAgo(job.createdAt) }}
             </p>
           </div>
           <div class="flex flex-col gap-1 text-right">
@@ -59,14 +59,14 @@ onMounted(() => {
         <div class="flex w-full h-[1px] bg-neutral-light-gray"></div>
 
         <div class="grid grid-cols-2 px-8 pb-7">
-          <div class="grid grid-cols-2">
+          <div class="grid grid-cols-[1fr_2fr] gap-8">
             <div class="flex gap-2">
               <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />
               <p class="text-sm font-medium text-black">{{ job.employer.name }}</p>
             </div>
 
             <div class="flex flex-col gap-1 font-medium text-sm">
-              <p class="text-black">{{ formatDate(job.deadline) }}</p>
+              <p class="text-black">{{ formatDateLong(job.deadline) }}</p>
               <p class="text-neutral-gray">Prazo de entrega</p>
             </div>
           </div>

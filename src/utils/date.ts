@@ -1,4 +1,4 @@
-export function formatDate(date: Date): string {
+export function formatDateTimeAgo(date: Date): string {
   const now = new Date()
   const diffInSeconds = (now.getTime() - new Date(date).getTime()) / 1000
 
@@ -22,4 +22,24 @@ export function formatDate(date: Date): string {
   }
 
   return rtf.format(-Math.floor(duration), 'year')
+}
+
+export function formatDateLong(date: Date): string {
+  const formatter = new Intl.DateTimeFormat('pt-BR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+
+  const parts = formatter.formatToParts(new Date(date))
+
+  const day = parts.find((p) => p.type === 'day')?.value
+  const month = parts.find((p) => p.type === 'month')?.value
+  const year = parts.find((p) => p.type === 'year')?.value
+
+  if (!day || !month || !year) return ''
+
+  const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1)
+
+  return `${day} de ${capitalizedMonth}, ${year}`
 }
