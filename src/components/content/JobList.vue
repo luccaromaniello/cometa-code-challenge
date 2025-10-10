@@ -26,8 +26,11 @@ onMounted(() => {
     <div v-else class="grid grid-cols-1 gap-3">
       <BaseCard v-for="job in jobs" :key="job.id" type="custom" class="relative overflow-visible">
         <div
-          v-if="job.profitHighlight"
-          class="h-1 rounded-t-lg w-full bg-linear-270 from-[#EF0F4E] to-[#F5C32C]"
+          :class="[
+            job.profitHighlight
+              ? 'h-1 rounded-t-lg w-full bg-linear-270 from-[#EF0F4E] to-[#F5C32C]'
+              : 'h-0',
+          ]"
         ></div>
 
         <div v-if="job.profitHighlight" class="absolute top-[0.5px] -translate-y-1/2 right-8 z-10">
