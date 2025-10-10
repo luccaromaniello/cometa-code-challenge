@@ -39,7 +39,7 @@ onMounted(() => {
           <BaseChip type="highlight" label="Alto lucro" />
         </div>
 
-        <div class="grid grid-cols-[2fr_1fr] gap-9 px-8">
+        <div class="grid grid-cols-[2fr_1fr] gap-9 px-8 py-6">
           <div class="flex flex-col gap-4">
             <h3 class="text-lg font-semibold text-gray-800">{{ job.title }}</h3>
             <span v-if="job.favorite" class="text-yellow-400 text-xl">★</span>
@@ -62,7 +62,7 @@ onMounted(() => {
 
         <div class="flex w-full h-[1px] bg-neutral-light-gray"></div>
 
-        <div class="grid grid-cols-2 px-8 pb-7">
+        <div class="grid grid-cols-2 px-8 pb-7 pt-5">
           <div class="grid grid-cols-[1fr_2fr] gap-8">
             <div class="flex gap-2">
               <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />

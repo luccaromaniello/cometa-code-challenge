@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseCard from '@components/ui/BaseCard.vue'
+import HighlightCard from '@components/ui/card/HighlightCard.vue'
 import TestimonialAvatars from '@components/ui/TestimonialAvatars.vue'
 
 import zupiBadge from '@assets/icons/badges/zupi.svg'
@@ -8,15 +8,16 @@ import founderBadge from '@assets/icons/badges/founder.svg'
 import avatar1 from '@assets/images/avatar-review-1.png'
 import avatar2 from '@assets/images/avatar-review-2.png'
 import avatar3 from '@assets/images/avatar-ramiro.png'
+import chart from '@assets/chart.svg'
 </script>
 
 <template>
   <div class="grid grid-cols-4 gap-5">
-    <BaseCard title="Saldo disponível" type="highlight" gradient data="R$12.529,24"
-      >testes</BaseCard
-    >
-    <BaseCard title="Visualizações de perfil" type="highlight" data="24">teste</BaseCard>
-    <BaseCard title="Avaliações gerais" type="highlight" data="4.9">
+    <HighlightCard title="Saldo disponível" gradient data="R$12.529,24">testes </HighlightCard>
+    <HighlightCard title="Visualizações de perfil" data="24" contentPadding="none">
+      <img :src="chart" alt="Chart placeholder" />
+    </HighlightCard>
+    <HighlightCard title="Avaliações gerais" data="4.9">
       <TestimonialAvatars
         :avatars="[
           { src: avatar1, alt: 'Testimonial Avatar 1' },
@@ -27,12 +28,12 @@ import avatar3 from '@assets/images/avatar-ramiro.png'
         secondaryText="Recebidas de 40 países"
         class="-mt-2"
       />
-    </BaseCard>
-    <BaseCard title="Suas conquistas" type="highlight">
+    </HighlightCard>
+    <HighlightCard title="Suas conquistas">
       <div class="flex gap-3 -ml-2 h-14">
         <img :src="zupiBadge" alt="Zupi Badge" />
         <img :src="founderBadge" alt="Founder Badge" />
       </div>
-    </BaseCard>
+    </HighlightCard>
   </div>
 </template>
