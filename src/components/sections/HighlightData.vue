@@ -7,7 +7,7 @@ import founderBadge from '@assets/icons/badges/founder.svg'
 
 import avatar1 from '@assets/images/avatar-review-1.png'
 import avatar2 from '@assets/images/avatar-review-2.png'
-import avatar3 from '@assets/images/avatar-michel.png'
+import avatar3 from '@assets/images/avatar-ramiro.png'
 </script>
 
 <template>
