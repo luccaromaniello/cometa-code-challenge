@@ -70,7 +70,7 @@ onMounted(() => {
               <p class="text-neutral-gray">Prazo de entrega</p>
             </div>
           </div>
-          <div class="grid grid-cols-[2fr_1fr]">
+          <div class="grid grid-cols-[2fr_1fr] gap-8">
             <ChipGroup :tags="job.tags" />
             <BaseButton label="Participar" variant="secondary" />
           </div>
