@@ -49,8 +49,8 @@ onMounted(() => {
           </div>
           <div class="flex flex-col gap-1 text-right">
             <p class="font-semibold text-neutral-purple">
-              R$ {{ job.salaryRange.from.toLocaleString() }} -
-              {{ job.salaryRange.to.toLocaleString() }}
+              R$ {{ job.salaryRange.from.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }} -
+              {{ job.salaryRange.to.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }}
             </p>
             <p class="text-sm text-neutral-gray font-medium">{{ job.offers }} propostas</p>
           </div>
