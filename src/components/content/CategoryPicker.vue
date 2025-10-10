@@ -8,7 +8,7 @@ import SelectableButton from '@components/ui/SelectableButton.vue'
 </script>
 
 <template>
-  <div class="grid grid-cols-1 gap-7">
+  <div class="flex flex-col gap-7">
     <SectionHeading type="h4" title="Categories" />
     <BaseCard>
       <div class="flex flex-col gap-7">
