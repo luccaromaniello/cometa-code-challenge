@@ -35,12 +35,15 @@ onMounted(() => {
           ]"
         ></div>
 
-        <div v-if="job.profitHighlight" class="absolute top-[0.5px] -translate-y-1/2 right-8 z-10">
+        <div
+          v-if="job.profitHighlight"
+          class="absolute top-[0.5px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 md:left-auto md:right-8 md:translate-x-0"
+        >
           <BaseChip type="highlight" label="Alto lucro" />
         </div>
 
-        <div class="grid grid-cols-[2fr_1fr] gap-9 px-8 py-6">
-          <div class="flex flex-col gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 md:gap-9 px-8 py-6">
+          <div class="flex flex-col gap-2 md:gap-4">
             <h3 class="text-lg font-semibold text-gray-800">{{ job.title }}</h3>
             <span v-if="job.favorite" class="text-yellow-400 text-xl">★</span>
             <p class="text-sm font-medium text-neutral-gray">
@@ -48,13 +51,16 @@ onMounted(() => {
               {{ formatDateTimeAgo(job.createdAt) }}
             </p>
           </div>
-          <div class="flex flex-col gap-1 text-right">
-            <p class="font-semibold text-neutral-purple">
-              R$ {{ job.salaryRange.from.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }} -
-              {{ job.salaryRange.to.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }}
-            </p>
-            <p class="text-sm text-neutral-gray font-medium">{{ job.offers }} propostas</p>
-            <div class="w-10 h-10 self-end mt-2">
+          <div class="flex flex-row justify-between md:flex-col gap-1 md:text-right">
+            <div class="flex flex-col">
+              <p class="font-semibold text-neutral-purple">
+                R$
+                {{ job.salaryRange.from.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }} -
+                {{ job.salaryRange.to.toLocaleString('pt-BR', { minimumFractionDigits: 0 }) }}
+              </p>
+              <p class="text-sm text-neutral-gray font-medium">{{ job.offers }} propostas</p>
+            </div>
+            <div class="w-10 h-10 self-start md:self-end md:mt-2">
               <IconButton icon="heart" />
             </div>
           </div>
@@ -62,9 +68,11 @@ onMounted(() => {
 
         <div class="flex w-full h-[1px] bg-neutral-light-gray"></div>
 
-        <div class="grid grid-cols-2 px-8 pb-7 pt-5">
-          <div class="grid grid-cols-[1fr_2fr] gap-8">
-            <div class="flex gap-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 px-8 pb-7 pt-5 gap-4">
+          <div
+            class="grid grid-cols-1 md:grid-cols-[1fr_2fr] xl:grid-cols-1 2xl:grid-cols-[1fr_2fr] gap-4 md:gap-8 xl:gap-4 2xl:gap-8"
+          >
+            <div class="flex gap-2 items-center md:items-start">
               <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />
               <p class="text-sm font-medium text-black">{{ job.employer.name }}</p>
             </div>
@@ -79,7 +87,9 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-[2fr_1fr] gap-8">
+          <div
+            class="grid grid-cols-1 md:grid-cols-[2fr_1fr] xl:grid-cols-1 2xl:grid-cols-[2fr_1fr] gap-4 md:gap-8 xl:gap-4 2xl:gap-8"
+          >
             <ChipGroup :tags="job.tags" />
             <BaseButton label="Participar" variant="secondary" />
           </div>

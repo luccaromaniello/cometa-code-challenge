@@ -25,7 +25,7 @@ import SelectableButton from '@components/ui/SelectableButton.vue'
           <SectionHeading type="h5" title="Idiomas" />
           <BaseButton label="Resetar" variant="text" @click="() => {}" />
         </div>
-        <div class="grid grid-cols-2 2xl:grid-cols-3 gap-3 justify-between items-center">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 justify-between items-center">
           <SelectableButton label="Português" />
           <SelectableButton label="English" />
           <SelectableButton label="Spanish" />
