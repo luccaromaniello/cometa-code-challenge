@@ -15,7 +15,9 @@ import chart from '@assets/chart.svg'
   <div class="grid grid-cols-4 gap-5">
     <HighlightCard title="Saldo disponível" gradient data="R$12.529,24">testes </HighlightCard>
     <HighlightCard title="Visualizações de perfil" data="24" contentPadding="none">
-      <img :src="chart" alt="Chart placeholder" />
+      <div class="absolute -bottom-16 left-0">
+        <img :src="chart" alt="Chart placeholder" class="w-full object-contain" />
+      </div>
     </HighlightCard>
     <HighlightCard title="Avaliações gerais" data="4.9">
       <TestimonialAvatars
