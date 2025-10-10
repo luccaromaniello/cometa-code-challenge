@@ -6,6 +6,7 @@ import BaseCard from '@components/ui/BaseCard.vue'
 import { formatDate } from '@utils/date'
 import ChipGroup from '@components/ui/ChipGroup.vue'
 import BaseAvatar from '@components/ui/BaseAvatar.vue'
+import BaseChip from '@components/ui/BaseChip.vue'
 
 const loading = ref(true)
 const jobs = ref<Job[]>([])
@@ -28,7 +29,12 @@ onMounted(() => {
           v-if="job.profitHighlight"
           class="h-1 rounded-t-lg w-full bg-linear-270 from-[#EF0F4E] to-[#F5C32C]"
         ></div>
-        <div class="grid grid-cols-[2fr_1fr] gap-9">
+
+        <div v-if="job.profitHighlight">
+          <BaseChip type="highlight" label="Alto lucro" />
+        </div>
+
+        <div class="grid grid-cols-[2fr_1fr] gap-9 px-8">
           <div class="flex flex-col gap-4">
             <h3 class="text-lg font-semibold text-gray-800">{{ job.title }}</h3>
             <span v-if="job.favorite" class="text-yellow-400 text-xl">★</span>
@@ -46,7 +52,9 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="grid grid-cols-2">
+        <div class="flex w-full h-[1px] bg-neutral-light-gray"></div>
+
+        <div class="grid grid-cols-2 px-8 pb-7">
           <div class="grid grid-cols-2">
             <div class="flex gap-2">
               <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />
