@@ -40,11 +40,11 @@ const navItems = [
     </div>
 
     <div class="flex items-center gap-2">
-      <IconButton icon="bell" />
+      <IconButton icon="bell" class="shrink-0" />
 
-      <BaseButton label="Minha lista" variant="secondary" />
+      <BaseButton label="Minha lista" variant="tertiary" />
 
-      <div class="relative">
+      <div class="relative shrink-0">
         <BaseAvatar :src="userAvatar" alt="Avatar do usuário logado" />
         <span
           class="absolute bottom-0 right-0 block w-3 h-3 bg-light-green border-1 border-white rounded-full"

@@ -6,7 +6,7 @@ const props = defineProps<{
   label?: string
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
-  variant?: 'primary' | 'secondary' | 'text'
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'text'
   icon?: keyof typeof iconMap
 }>()
 
@@ -22,14 +22,16 @@ const handleClick = (event: MouseEvent) => {
 }
 
 const baseClasses =
-  'rounded-full text-sm font-medium transition-all duration-150 inline-flex items-center gap-2 cursor-pointer'
+  'rounded-full text-sm font-medium transition-all duration-150 inline-flex items-center gap-2 cursor-pointer h-10'
 
 const variantClasses = computed(() => {
   if (props.disabled) return 'opacity-50 cursor-not-allowed pointer-events-none'
 
   switch (props.variant) {
     case 'secondary':
-      return 'bg-white text-black hover:bg-transparent hover:text-white w-full h-full rounded-full flex items-center justify-center px-4 py-2'
+      return 'bg-white text-black hover:bg-transparent hover:text-white w-full rounded-full flex items-center justify-center px-4 py-2'
+    case 'tertiary':
+      return 'border border-neutral-light-gray text-neutral-gray hover:bg-neutral-light-gray/30 w-full rounded-full flex items-center justify-center px-6 py-2'
     case 'text':
       return 'p-0 bg-transparent text-neutral-gray hover:underline'
     default:
