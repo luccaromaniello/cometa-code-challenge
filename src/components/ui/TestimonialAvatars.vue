@@ -13,7 +13,7 @@ const hiddenCount = props.avatars.length - 3
 </script>
 
 <template>
-  <div class="flex items-center gap-3">
+  <div class="flex flex-col md:flex-row xl:flex-col 2xl:flex-row items-center gap-4 md:gap-4 pb-8">
     <div class="flex -space-x-3">
       <BaseAvatar :src="starAvatar" alt="Top-rated" class="bg-primary p-3 z-50" />
 
@@ -35,7 +35,7 @@ const hiddenCount = props.avatars.length - 3
       </div>
     </div>
 
-    <div class="flex flex-col text-sm">
+    <div class="flex flex-col text-sm text-center md:text-start xl:text-center 2xl:text-start">
       <p class="font-medium text-neutral-light-purple">
         {{ secondaryText }}
       </p>
