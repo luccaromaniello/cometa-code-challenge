@@ -17,9 +17,9 @@ const props = withDefaults(
 </script>
 
 <template>
-  <BaseCard type="custom">
+  <BaseCard type="custom" class="h-52">
     <div
-      class="relative rounded-lg overflow-hidden"
+      class="relative rounded-lg overflow-hidden h-full"
       :class="[
         props.gradient &&
           'bg-linear-270 from-[#EE7696] via-[#8A05BE] to-[#EE7696] border-none shadow-none',
@@ -39,7 +39,7 @@ const props = withDefaults(
         </p>
       </div>
 
-      <div class="relative z-10" :class="props.contentPadding === 'default' && 'py-8 px-7'">
+      <div class="relative z-10" :class="props.contentPadding === 'default' && 'px-7'">
         <slot />
       </div>
     </div>
