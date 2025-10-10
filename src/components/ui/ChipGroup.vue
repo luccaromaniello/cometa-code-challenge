@@ -21,15 +21,19 @@ function updateVisibleTags() {
   const newVisible: string[] = []
   const newHidden: string[] = []
 
+  // Estimate +X chip width (adjust this to your BaseChip size)
+  const plusChipWidth = 40 // or measure dynamically if you want
+
   for (let i = 0; i < props.tags.length; i++) {
     const el = tagRefs.value[i]
     const tag = props.tags[i]
 
     if (!el || !tag) continue
 
-    const tagWidth = el.offsetWidth + 8 // Add gap between chips
+    const tagWidth = el.offsetWidth + 8 // gap
 
-    if (currentWidth + tagWidth < maxWidth) {
+    // Reserve space for +X chip if there will be hidden tags after adding this one
+    if (currentWidth + tagWidth + (props.tags.length - i - 1 > 0 ? plusChipWidth : 0) < maxWidth) {
       currentWidth += tagWidth
       newVisible.push(tag)
     } else {
@@ -75,7 +79,7 @@ watch(
   </div>
 
   <!-- Rendered visible tags -->
-  <div ref="containerRef" class="flex gap-2 overflow-hidden whitespace-nowrap">
+  <div ref="containerRef" class="flex gap-2 whitespace-nowrap">
     <BaseChip v-for="tag in visibleTags" :key="tag" :label="tag" />
 
     <!-- +X chip with tooltip for hidden tags -->
