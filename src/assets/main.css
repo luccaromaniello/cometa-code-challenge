@@ -32,3 +32,24 @@ body,
   height: 100%;
   margin: 0;
 }
+
+.custom-checkbox {
+  @apply appearance-none w-5 h-5 border-[1px] rounded-md border-primary/50 bg-primary/10 relative cursor-pointer;
+  outline: none;
+}
+
+.custom-checkbox:checked {
+  @apply bg-primary/10;
+}
+
+.custom-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--primary);
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}
