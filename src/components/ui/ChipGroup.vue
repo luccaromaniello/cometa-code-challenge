@@ -42,9 +42,7 @@ function updateVisibleTags() {
 }
 
 function setTagRef(el: HTMLElement | null, index: number) {
-  if (el) {
-    tagRefs.value[index] = el
-  }
+  if (el) tagRefs.value[index] = el
 }
 
 onMounted(async () => {
@@ -63,7 +61,7 @@ watch(
 </script>
 
 <template>
-  <!-- TagGroup.vue (measuring layout) -->
+  <!-- this only exists for measuring layout -->
   <div class="flex flex-wrap gap-2 absolute left-[-9999px] top-0 opacity-0">
     <div
       v-for="(tag, index) in props.tags"
@@ -74,7 +72,7 @@ watch(
     </div>
   </div>
 
-  <!-- Actual visible tags -->
+  <!-- actual tags -->
   <div ref="containerRef" class="flex flex-wrap gap-2 overflow-hidden">
     <BaseChip v-for="tag in visibleTags" :key="tag" :label="tag" />
 
