@@ -39,7 +39,7 @@ watch(modelValue, (val) => {
         v-model="modelValue"
         :placeholder="placeholder"
         :disabled="disabled"
-        class="w-full px-4 py-2 border border-neutral-light-gray rounded-md text-sm text-neutral-800 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent disabled:bg-neutral-100 disabled:cursor-not-allowed placeholder-neutral-dark-grey"
+        class="w-full h-14 px-4 py-4 border border-neutral-light-gray rounded-lg text-sm text-neutral-800 focus:outline-none focus:ring-1 focus:ring-primary focus:border-transparent disabled:bg-neutral-100 disabled:cursor-not-allowed placeholder-neutral-dark-grey shadow-[0px_13px_18px_0px_#3E00560D]"
       />
       <img
         :src="searchIcon"
