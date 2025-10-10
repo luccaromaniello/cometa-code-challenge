@@ -38,9 +38,9 @@ const props = withDefaults(
 
     <div
       v-if="props.tooltip?.length"
-      class="absolute z-10 top-full left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block bg-gray-900 text-white text-xs rounded px-2 py-1 whitespace-pre-line shadow-lg pointer-events-none"
+      class="absolute z-10 top-full left-1/2 -translate-x-1/2 mt-1 hidden group-hover:block bg-gray-900 text-white text-xs rounded px-2 py-1 whitespace-nowrap shadow-lg pointer-events-none"
     >
-      {{ props.tooltip.join('\n') }}
+      {{ props.tooltip.join(', ') }}
     </div>
   </div>
 </template>
