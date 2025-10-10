@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { computed } from 'vue'
+
 import type { Job } from '@/data/jobs'
 import { jobs as mockJobs } from '@/data/jobs'
 import BaseCard from '@components/ui/BaseCard.vue'
@@ -13,20 +15,37 @@ import IconButton from '@components/ui/IconButton.vue'
 const loading = ref(true)
 const jobs = ref<Job[]>([])
 
+const props = defineProps<{
+  search: string
+}>()
+
 onMounted(() => {
   setTimeout(() => {
     jobs.value = JSON.parse(JSON.stringify(mockJobs))
     loading.value = false
   }, 1000)
 })
+
+const filteredJobs = computed(() =>
+  jobs.value.filter((job) => job.title.toLowerCase().includes(props.search.toLowerCase())),
+)
 </script>
 
 <template>
   <div>
     <div v-if="loading" class="text-gray-500 text-sm">Carregando oportunidades...</div>
 
+    <div v-else-if="filteredJobs.length === 0" class="text-gray-500 text-sm">
+      Nenhum trabalho encontrado para sua busca.
+    </div>
+
     <div v-else class="grid grid-cols-1 gap-3">
-      <BaseCard v-for="job in jobs" :key="job.id" type="custom" class="relative overflow-visible">
+      <BaseCard
+        v-for="job in filteredJobs"
+        :key="job.id"
+        type="custom"
+        class="relative overflow-visible"
+      >
         <div
           :class="[
             job.profitHighlight
