@@ -13,12 +13,14 @@
   --neutral-light-gray: hsl(0, 0%, 90.2%);
   --neutral-gray: hsla(229, 8%, 50%, 1);
   --neutral-dark-gray: hsla(0, 0%, 26%, 1);
+  --light-green: hsla(148, 79%, 61%, 1);
   --font-mona: 'Mona Sans', sans;
 }
 
 @theme {
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-light-green: var(--light-green);
   --color-neutral-purple: var(--neutral-purple);
   --color-neutral-light-purple: var(--neutral-light-purple);
   --color-neutral-gray: var(--neutral-gray);
