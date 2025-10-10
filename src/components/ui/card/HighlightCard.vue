@@ -22,7 +22,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <BaseCard type="custom" class="h-50">
+  <BaseCard type="custom" class="min-h-50">
     <div
       class="relative rounded-lg overflow-hidden h-full"
       :class="[
