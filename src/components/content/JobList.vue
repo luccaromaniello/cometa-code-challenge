@@ -5,6 +5,7 @@ import { jobs as mockJobs } from '@/data/jobs'
 import BaseCard from '@components/ui/BaseCard.vue'
 import { formatDate } from '@utils/date'
 import ChipGroup from '@components/ui/ChipGroup.vue'
+import BaseAvatar from '@components/ui/BaseAvatar.vue'
 
 const loading = ref(true)
 const jobs = ref<Job[]>([])
@@ -45,8 +46,11 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="grid grid-cols-4">
-          <p class="text-sm font-medium text-black">{{ job.employer }}</p>
+        <div class="grid grid-cols-[1fr_1fr_2fr_1fr] gap-8">
+          <div class="flex gap-2">
+            <BaseAvatar :src="job.employer.img.src" :alt="job.employer.img.alt" />
+            <p class="text-sm font-medium text-black">{{ job.employer.name }}</p>
+          </div>
 
           <div class="flex flex-col gap-1 font-medium text-sm">
             <p class="text-black">{{ formatDate(job.deadline) }}</p>

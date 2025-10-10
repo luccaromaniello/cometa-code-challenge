@@ -42,7 +42,9 @@ function updateVisibleTags() {
 }
 
 function setTagRef(el: HTMLElement | null, index: number) {
-  if (el) tagRefs.value[index] = el
+  if (el) {
+    tagRefs.value[index] = el
+  }
 }
 
 onMounted(async () => {
@@ -61,8 +63,8 @@ watch(
 </script>
 
 <template>
-  <!-- this only exists for measuring layout -->
-  <div class="flex flex-wrap gap-2 absolute left-[-9999px] top-0 opacity-0">
+  <!-- Invisible layout for measuring tag widths -->
+  <div class="flex flex-wrap gap-2 absolute left-[-9999px] top-0 opacity-0 pointer-events-none">
     <div
       v-for="(tag, index) in props.tags"
       :key="tag"
@@ -72,10 +74,11 @@ watch(
     </div>
   </div>
 
-  <!-- actual tags -->
-  <div ref="containerRef" class="flex flex-wrap gap-2 overflow-hidden">
+  <!-- Rendered visible tags -->
+  <div ref="containerRef" class="flex gap-2 overflow-hidden whitespace-nowrap">
     <BaseChip v-for="tag in visibleTags" :key="tag" :label="tag" />
 
+    <!-- +X chip with tooltip for hidden tags -->
     <BaseChip v-if="hiddenTags.length" :label="`+${hiddenTags.length}`" :tooltip="hiddenTags" />
   </div>
 </template>
