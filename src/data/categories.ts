@@ -2,10 +2,10 @@ export interface Category {
   name: string
   children?: Category[]
   selected: boolean
+  isMaster?: boolean
 }
 
 export const categories: Category[] = [
-  { name: 'Todas as categorias', selected: true },
   { name: 'Desenvolvimento', selected: true },
   {
     name: 'Design',

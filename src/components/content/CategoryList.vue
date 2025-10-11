@@ -9,7 +9,15 @@ const categories = ref<Category[]>([])
 onMounted(() => {
   // api delay simulation
   setTimeout(() => {
-    categories.value = JSON.parse(JSON.stringify(mockCategories))
+    const loadedCategories = JSON.parse(JSON.stringify(mockCategories))
+    categories.value = [
+      {
+        name: 'Todas as categorias',
+        selected: true,
+        isMaster: true,
+      },
+      ...loadedCategories,
+    ]
     loading.value = false
   }, 1000)
 })
@@ -17,10 +25,21 @@ onMounted(() => {
 function toggleCategory(category: Category) {
   category.selected = !category.selected
 
-  if (category.children) {
-    category.children.forEach((child) => {
+  if (category.isMaster) {
+    categories.value.forEach((cat) => {
+      if (!cat.isMaster) {
+        cat.selected = category.selected
+        cat.children?.forEach((child) => (child.selected = category.selected))
+      }
+    })
+  } else {
+    category.children?.forEach((child) => {
       child.selected = category.selected
     })
+
+    const allSelected = categories.value.filter((c) => !c.isMaster).every((c) => c.selected)
+    const master = categories.value.find((c) => c.isMaster)
+    if (master) master.selected = allSelected
   }
 }
 
@@ -30,6 +49,10 @@ function toggleChild(category: Category, child: Category) {
   if (category.children) {
     category.selected = category.children.every((c) => c.selected)
   }
+
+  const allSelected = categories.value.filter((c) => !c.isMaster).every((c) => c.selected)
+  const master = categories.value.find((c) => c.isMaster)
+  if (master) master.selected = allSelected
 }
 </script>
 
