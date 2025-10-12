@@ -21,6 +21,11 @@
 
 - The Figma file lacked standardization in some styles, especially gradients and button components. To avoid inconsistencies, I opted to standardize a few elements. Since the instructions left room for interpretation, I believe this approach aligns with the challenge's intent.
 
+- Future improvements:
+  - Add negotiations feature
+  - Improve mobile experience and responsiveness
+  - Standardize button components
+
 ## AI Usage
 
 - Mostly used for code completion and suggestions. I've also used to create boilerplate code for components and pages, and to generate commonly used code snippets, such as date formatting.
