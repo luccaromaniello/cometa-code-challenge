@@ -32,7 +32,7 @@
 
 ## 🧞 Commands
 
-All commands should be run from the root of the project in a terminal. I'm using `Bun, but you can also use any JavaScript runtime like npm, Yarn, etc.
+All commands should be run from the root of the project in a terminal. I'm using `Bun`, but you can also use any JavaScript runtime like npm, Yarn, etc.
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
