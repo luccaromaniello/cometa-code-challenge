@@ -1,4 +1,4 @@
-![Original layout overview](https://github.com/luccaromaniello/softruck-challenge/blob/main/challenge/public/overview.png?raw=true)
+![Original layout overview](https://github.com/luccaromaniello/cometa-code-challenge/blob/769a0fa963a66fed99e29f997b22f058b161fc6d/instructions/original-layout.png)
 
 # Cometa Code - Frontend Challenge
 
