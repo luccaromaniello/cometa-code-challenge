@@ -17,6 +17,7 @@ const jobs = ref<Job[]>([])
 
 const props = defineProps<{
   search: string
+  selectedCategories: number[]
 }>()
 
 onMounted(() => {
@@ -26,9 +27,19 @@ onMounted(() => {
   }, 1000)
 })
 
-const filteredJobs = computed(() =>
-  jobs.value.filter((job) => job.title.toLowerCase().includes(props.search.toLowerCase())),
-)
+const filteredJobs = computed(() => {
+  const selectedCategoryIds = props.selectedCategories
+
+  return jobs.value.filter((job) => {
+    const matchesSearch = job.title.toLowerCase().includes(props.search.toLowerCase())
+
+    const matchesCategory =
+      selectedCategoryIds.length === 0 ||
+      job.categoriesIds?.some((catId) => selectedCategoryIds.includes(catId))
+
+    return matchesSearch && matchesCategory
+  })
+})
 </script>
 
 <template>

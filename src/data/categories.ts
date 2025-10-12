@@ -1,4 +1,5 @@
 export interface Category {
+  id: number
   name: string
   children?: Category[]
   selected: boolean
@@ -6,18 +7,19 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-  { name: 'Desenvolvimento', selected: true },
+  { id: 1, name: 'Desenvolvimento', selected: true },
   {
+    id: 2,
     name: 'Design',
     selected: true,
     children: [
-      { name: 'Web Design', selected: true },
-      { name: 'UI e UX Design', selected: true },
-      { name: 'Motion Design', selected: true },
+      { id: 3, name: 'Web Design', selected: true },
+      { id: 4, name: 'UI e UX Design', selected: true },
+      { id: 5, name: 'Motion Design', selected: true },
     ],
   },
-  { name: 'Copywriting', selected: true },
-  { name: 'Especialistas em IA', selected: true },
-  { name: 'Social Media', selected: true },
-  { name: 'UGC / Content Creator', selected: true },
+  { id: 6, name: 'Copywriting', selected: true },
+  { id: 7, name: 'Especialistas em IA', selected: true },
+  { id: 8, name: 'Social Media', selected: true },
+  { id: 9, name: 'UGC / Content Creator', selected: true },
 ]

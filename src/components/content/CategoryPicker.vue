@@ -5,6 +5,11 @@ import BaseInput from '@components/ui/BaseInput.vue'
 import BaseButton from '@components/ui/BaseButton.vue'
 import CategoryList from '@components/content/CategoryList.vue'
 import SelectableButton from '@components/ui/SelectableButton.vue'
+import { ref } from 'vue'
+
+const selectedCategories = ref<number[]>([])
+
+defineExpose({ selectedCategories })
 </script>
 
 <template>
@@ -20,7 +25,7 @@ import SelectableButton from '@components/ui/SelectableButton.vue'
           <SectionHeading type="h5" title="Categorias disponíveis" />
           <BaseButton label="Resetar" variant="text" @click="() => {}" />
         </div>
-        <CategoryList />
+        <CategoryList @update:selectedCategories="(val) => (selectedCategories = val)" />
         <div class="flex flex-row justify-between items-center">
           <SectionHeading type="h5" title="Idiomas" />
           <BaseButton label="Resetar" variant="text" @click="() => {}" />
