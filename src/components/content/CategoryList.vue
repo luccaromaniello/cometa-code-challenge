@@ -3,13 +3,26 @@ import { ref, onMounted } from 'vue'
 import type { Category } from '@data/categories'
 import { categories as mockCategories } from '@data/categories'
 
+const emit = defineEmits<{
+  (e: 'update:selectedCategories', selected: number[]): void
+}>()
+
 const loading = ref(true)
 const categories = ref<Category[]>([])
 
+function emitSelectedCategories() {
+  const selected = categories.value.flatMap((cat) => {
+    if (cat.selected && !cat.isMaster) return [cat.id]
+    return cat.children?.filter((child) => child.selected).map((child) => child.id) || []
+  })
+
+  emit('update:selectedCategories', selected)
+}
+
 onMounted(() => {
-  // api delay simulation
   setTimeout(() => {
     const loadedCategories = JSON.parse(JSON.stringify(mockCategories))
+
     categories.value = [
       {
         name: 'Todas as categorias',
@@ -18,7 +31,16 @@ onMounted(() => {
       },
       ...loadedCategories,
     ]
+
+    categories.value.forEach((cat) => {
+      if (!cat.isMaster) {
+        cat.selected = true
+        cat.children?.forEach((child) => (child.selected = true))
+      }
+    })
+
     loading.value = false
+    emitSelectedCategories()
   }, 1000)
 })
 
@@ -41,6 +63,8 @@ function toggleCategory(category: Category) {
     const master = categories.value.find((c) => c.isMaster)
     if (master) master.selected = allSelected
   }
+
+  emitSelectedCategories()
 }
 
 function toggleChild(category: Category, child: Category) {
@@ -53,6 +77,8 @@ function toggleChild(category: Category, child: Category) {
   const allSelected = categories.value.filter((c) => !c.isMaster).every((c) => c.selected)
   const master = categories.value.find((c) => c.isMaster)
   if (master) master.selected = allSelected
+
+  emitSelectedCategories()
 }
 </script>
 

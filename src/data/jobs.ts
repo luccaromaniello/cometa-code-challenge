@@ -3,6 +3,7 @@ import avatarMichel from '@assets/images/avatar-michel.png'
 
 export interface Job {
   id: string
+  categoriesIds: number[]
   title: string
   createdAt: Date
   deadline: Date
@@ -26,6 +27,7 @@ export interface Job {
 export const jobs: Job[] = [
   {
     id: '4dae306d-5707-4118-82ff-55465055ac78',
+    categoriesIds: [1, 2, 3, 4],
     title: 'Desenvolvimento de App para Delivery de Comida White Label',
     createdAt: new Date('2025-05-01'),
     deadline: new Date('2025-06-15'),
@@ -47,6 +49,7 @@ export const jobs: Job[] = [
   },
   {
     id: 'ec5cc1e9-c8e6-464d-9514-7fff36df9b1b',
+    categoriesIds: [1, 3, 4, 6],
     title: 'Construção de página de vendas para Lançamento',
     createdAt: new Date('2025-05-10'),
     deadline: new Date('2025-05-30'),
