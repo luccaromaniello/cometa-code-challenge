@@ -4,7 +4,7 @@
 
 ## Instructions
 
-- Recreate the provided design layout  `instructions/original-layout.png` in the repository).
+- Recreate the provided design layout (`instructions/original-layout.png` in the repository).
 - Use Vue.js 3
 - Use components
 - Implement lifecycle hooks from Vue
