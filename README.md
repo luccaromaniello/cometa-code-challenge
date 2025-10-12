@@ -1,16 +1,29 @@
+![Original layout overview](https://github.com/luccaromaniello/softruck-challenge/blob/main/challenge/public/overview.png?raw=true)
+
 # Cometa Code - Frontend Challenge
+
+## Instructions
+
+- Recreate the provided design layout  `instructions/original-layout.png` in the repository).
+- Use Vue.js 3
+- Use components
+- Implement lifecycle hooks from Vue
 
 ## Features
 
 - Replicated the interface using Vue.js
 - Implemented a responsive design (didn't considered ultrawide resolutions - this would be a future improvement)
-- Added interactivity (job search by name)
+- Added interactivity (job search by name and category filter)
 
 ## Considerations
 
 - It wasn’t specified whether CSS preprocessors or libraries could be used. In my interpretation, this was open, so I chose Tailwind CSS for styling.
 
 - The Figma file lacked standardization in some styles, especially gradients and button components. To avoid inconsistencies, I opted to standardize a few elements. Since the instructions left room for interpretation, I believe this approach aligns with the challenge's intent.
+
+## AI Usage
+
+- Mostly used for code completion and suggestions. I've also used to create boilerplate code for components and pages, and to generate commonly used code snippets, such as date formatting.
 
 ## 🧞 Commands
 
