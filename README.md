@@ -12,7 +12,7 @@
 ## Features
 
 - Replicated the interface using Vue.js
-- Implemented a responsive design (didn't considered ultrawide resolutions - this would be a future improvement)
+- Implemented a responsive design
 - Added interactivity (job search by name and category filter)
 
 ## Considerations
@@ -25,6 +25,7 @@
   - Add negotiations feature
   - Improve mobile experience and responsiveness
   - Standardize button components
+  - Define and implement experience for ultrawide monitors
 
 ## AI Usage
 
